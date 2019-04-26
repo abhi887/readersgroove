@@ -1,0 +1,72 @@
+﻿#head {
+    text-align: center;
+    font-family: 'ROG Fonts v1.6';
+    margin: -3% 10px 60px 10px;
+    font-size: 70px;
+    color:lightsteelblue;
+}
+
+.userinfo {
+    margin-left: 0%;
+    text-align: center;
+    font-family: 'Felix Titling','Bookman Old Style','Perpetua Titling MT'
+}
+
+#username {
+    margin-left: 43%;
+    padding: 10px 0px 10px 0px;
+    background-color: aquamarine;
+    border: hidden 1px white;
+    border-radius: 60px;
+    height: 20px;
+    width: 200px;
+    font-size: 15px;
+}
+
+.search {
+    margin: 2% 0% 10% 32%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 90px;
+    height: 20px;
+    width: 500px;
+    background-color: lightsteelblue;
+}
+
+#search {
+}
+
+#searchb {
+    margin-top: 4%;
+    background-color: coral;
+    height: 30px;
+    width: 80px;
+    color: whitesmoke;
+}
+
+.result:not(#partitioner){
+    margin:40px 400px 40px 400px;
+    padding:10px;
+    background-color:lightcyan;
+    border: 4px dotted lightsteelblue;
+    text-align:center;
+}
+
+#partitioner {
+    margin: 4% -15px 4% -15px;
+    color: transparent;
+    background-color: white;
+    border-top: 4px dotted lightsteelblue;
+    border-bottom: 4px dotted lightsteelblue;
+}
+
+#logout{
+    text-align:right;
+    margin:4% 4% 0% 0%;
+}
+#identity {
+    margin-top: auto%;
+    text-align: left;
+    color: black;
+    font-family: 'Bahnschrift','Harlow Solid','Eras ITC','Forte';
+}

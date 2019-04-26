@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html style="background-color:whitesmoke;">
+<!--<link rel="stylesheet" type="text/css" href="prj1p1.css"/>-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='prj1p1.css') }}" />
+<head>
+    <title>Readers Groove - login</title>
+</head>
+<body>
+    <h1 id="head">Readers Groove</h1>
+    <div class="para">
+        <p>
+            Welcome to The Readers Groove, and thank you for sharing your reading enthusiasm with us,
+            the people who share a little something of the same insterest as you do.<br /><br />
+            to get started , hurry up and login.
+        </p>
+    </div>
+    <div id="form">
+        <img src="static/genericuser.png" height="100px" width="100px" />
+        <form action="{{url_for ('slogin')}}" method="post">
+            <h3><input name="username" placeholder="username or Email" type="text"></h3>
+            <h3><input name="password" placeholder="password" type="password"></h3>
+            <button type="submit" formmethod="post" placeholder="Login" name="submit">Login</button>
+            <h4>Not a member ? <a href="signup">click here !</a></h4>
+        </form>
+    </div>
+</body>
+<div id="identity">Created and Crafted with love </br>By Abhishek Vyas</div>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html style="background-color:whitesmoke;">
+<!--<link rel="stylesheet" type="text/css" href="prj1p1.css"/>-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='relogin.css') }}" />
+<head>
+    <title>Readers Groove - login</title>
+</head>
+<body>
+    <h1 id="head">Readers Groove</h1>
+    <div class="para">
+        {% if cerror != True %}
+        <p>
+            Entered password or email is incorrect !<br /> please try again
+        </p>
+        {% else %}
+        <p>
+            We are sorry for the inconvenience but an error occured in the connection !</br>
+            please login again
+        </p>
+        {% endif %}
+    </div>
+    <div id="form">
+        <img src="static/genericuser.png" height="100px" width="100px" />
+        <form action="{{url_for ('slogin')}}" method="post">
+            <h3><input name="username" placeholder="username" type="text"></h3>
+            <h3><input name="password" placeholder="password" type="password"></h3>
+            <button type="submit" formmethod="post" placeholder="Login" name="submit">Login</button>
+            <h4>Not a member ? <a href="signup">click here !</a></h4>
+        </form>
+    </div>
+</body>
+<div id="identity">Created and Crafted with love </br>By Abhishek Vyas</div>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  

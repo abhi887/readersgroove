@@ -1,0 +1,106 @@
+﻿#head {
+    text-align: center;
+    font-family: 'ROG Fonts v1.6';
+    margin: -3% 10px 60px 10px;
+    font-size: 70px;
+    color:lightsteelblue;
+}
+
+.userinfo {
+    margin-left: 0%;
+    text-align: center;
+    font-family: 'Felix Titling','Bookman Old Style','Perpetua Titling MT'
+}
+
+#username{
+    margin-left:43%;
+    padding:10px 0px 10px 0px;
+    background-color:aquamarine;
+    border:hidden 1px white;
+    border-radius:60px;
+    height:20px;
+    width:200px;
+    font-size:15px;
+}
+
+.search {
+    margin: 5% 0% 0% 32%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 90px;
+    height: 20px;
+    width: 500px;
+    //border: 6px dotted slategrey;
+    background-color: lightsteelblue;
+}
+
+#search {
+}
+
+#searchb{
+    margin-top:4%;
+    background-color:coral;
+    height:30px;
+    width:80px;
+    color:whitesmoke;
+}
+
+#logout {
+    text-align: right;
+    margin: 4% 4% 0% 0%;
+}
+
+.result {
+    margin: 4% 0px 4% 0px;
+    padding: 10px;
+    background-color: lightcyan;
+    border: 4px dotted lightsteelblue;
+    text-align: left;
+}
+
+#bname{
+    text-align:center;
+}
+.review{
+    margin:5% 70% 0% 2%;
+    background-color:antiquewhite;
+    border:3px dashed tan;
+    padding:5px 5px 20px 20px;
+    text-align:center;
+    font-family:'Kristen ITC','Lucida Console','Microsoft Sans Serif','Rockwell';
+}
+
+.reviewtxt{
+    margin:3% 0px 0px 5%;
+    paddinng:0px;
+}
+
+#revbutton{
+    color:firebrick;
+    background-color:khaki;
+    text-align:center;
+    margin:2% 0% 0% 8%;
+}
+
+.totreviews{
+    margin:0% 4% 0% 70%;
+    background-color:lightsteelblue;
+    border:3px dashed orangered;
+    padding:5px 5px 8px 20px;
+    text-align:left;
+    font-family:'Kristen ITC','Lucida Console','Microsoft Sans Serif','Rockwell';
+}
+
+#partitioner {
+    margin: 0% -2% 0% -6.5%;
+    color: transparent;
+    background-color: white;
+    border-top: 3px dashed orangered;
+    border-bottom: 3px dashed orangered;
+}
+#identity {
+    margin-top: 20%;
+    text-align: left;
+    color: black;
+    font-family: 'Bahnschrift','Harlow Solid','Eras ITC','Forte';
+}
