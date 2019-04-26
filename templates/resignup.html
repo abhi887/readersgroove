@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html style="background-color:whitesmoke;">
+<!--<link rel="stylesheet" type="text/css" href="prj1p2.css"/>-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='resignup.css') }}" />
+<head>
+    <title>Readers Groove - Signup</title>
+</head>
+<body>
+    <h1 id="head">Readers Groove</h1>
+    <div class="para">
+        {% if signuped != None %}
+        <p>{{ signuped }}</p>
+        {% else %}
+        <p>
+            Sorry , the email <u>"{{wemail}}"</u> is already registered !<br />try again with a different email
+        </p>
+        {% endif %}
+    </div>
+    <div id="form">
+        <img src="static/add-512.png" height="150px" width="150px" />
+        <form action="{{url_for ('ssignup')}}" method="post">
+            <div id="ouf">
+                <div id="ffield">Name :</div>
+                <h3><input name="fname" placeholder="First Name" type="text" /><input name="lname" placeholder="Last Name" type="text" /></h3>
+                <div id="ffield">Email :</div>
+                <h3><input name="email" placeholder="email" type="email" /></h3>
+                <div id="ffield">Date of Birth :</div><h3><input name="dob" type="date" /></h3>
+                </br>
+                <table>
+                    <div id="ffield">Gender :</div>
+                    <br />
+                    <tr><input type="radio" name="sex" value="male">Male</tr>
+                    <br />
+                    <tr><input type="radio" name="sex" value="female">Female</tr>
+                    </br>
+                    <tr><input type="radio" name="sex" value="other">Other</tr>
+                    </br>
+                </table>
+                <br />
+                <div id="ffield">Password :</div>
+                <h3><input name="password" placeholder="password" type="password"></h3>
+                </br>
+            </div>
+            <button type="submit" formmethod="post" placeholder="sign up" name="submit">Sign Up</button>
+        </form>
+        <br />
+        <br />
+        <h4>Already a member ?  <a href="/login">Click here !</a></h4>
+    </div>
+</body>
+<div id="identity">Created and Crafted with love </br>By Abhishek Vyas</div>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
