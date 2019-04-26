@@ -30,6 +30,10 @@ app.static_folder='static'
 Session(app)
 global usrnm
 
+if __name__=='__main__':
+    app.run()
+
+
 @app.route("/")
 def index():
     return render_template("login.html")
