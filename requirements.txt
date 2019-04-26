@@ -6,7 +6,8 @@ psycopg2
 
 SQLAlchemy
 requests
-biltins
+
+builtins
 sqlalchemy.orm
 os
 sys
