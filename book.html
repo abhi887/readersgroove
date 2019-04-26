@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+
+<html>
+<link rel="stylesheet" type="text/css" href="{{url_for ('static',filename='book.css')}}" />
+<head>
+    <title>Readers Groove - {{bname}} </title>
+</head>
+<body>
+    <div id="logout"><button type="button"><a href="/login">Logout</a></button></div>
+    <h1 id="head">Readers Groove</h1>
+    <div class="userinfo">
+        {% if usrnm != "" %}
+        <img src="static/genericuser.png" height="100px" width="100px" /><br />
+        <div id="username">{{usrnm}}</div>
+        {% endif %}
+    </div>
+    <form class="search" action="{{url_for('search')}}" method="post">
+        <input id="search " type="search" name="search" placeholder="search" />
+        <br />
+        <button id="searchb" type="submit" name="searchb" placeholder="Find">Find</button>
+        <div class="result">
+            <div id="bname">
+                <h1>{{bname}}</h1>
+                <h2><i>Details : </i></h2>
+            </div>
+            {% if bdstatus != 0 %}
+            {% for results in res %}
+            {% if loop.index==1 %}
+            <h3>id: {{results}}</h3>
+            {% endif %}
+            {% if loop.index==2 %}
+            <h3>isbn : {{results}}</h3>
+            {% endif %}
+            {% if loop.index==3 %}
+            <h3>isbn(13) : {{results}}</h3>
+            {% endif %}
+            {% if loop.index==4 %}
+            <h3>ratings count : {{results}}</h3>
+            {% endif %}
+            {% if loop.index==5 %}
+            <h3>reviews count : {{results}}</h3>
+            {% endif %}
+            {% if loop.index==6 %}
+            <h3>text reviews count : {{results}}</h3>
+            {% endif %}
+            {% if loop.index==7 %}
+            <h3>work ratings count : {{results}}</h3>
+            {% endif %}
+            {% if loop.index==8 %}
+            <h3>work reviews count : {{results}} </h3>
+            {% endif %}
+            {% if loop.index==9 %}
+            <h3>work text reviews count: {{results}}</h3>
+            {% endif %}
+            {% if loop.index==10 %}
+            <h3>average rating : {{results}} </h3>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <h3>Sorry but the details of this book are not currently available</h3>
+            {% endif %}
+        </div>
+    </form>
+    <div class="review">
+        {% if revi == 0 %}
+        <h2>Your rating : </h2>
+        <form action="{{url_for('book',bname=bname)}}" method="post">
+            <table>
+                <thead>
+                    <input type="radio" name="rating" value='5'>Excellent</input>
+                </thead>
+                <thead>
+                    <input type="radio" name="rating" value='4'>Very good</input>
+                </thead>
+                <thead>
+                    <input type="radio" name="rating" value='3'>Good</input>
+                </thead>
+                <thead>
+                    <input type="radio" name="rating" value='2'>Not good</input>
+                </thead>
+                </br>
+                <thead>
+                    <input type="radio" name="rating" value='1'>Poor</input>
+                </thead>
+            </table>
+            <div class="reviewtxt">
+                <textarea type="text" cols="40" rows="6" name="review" placeholder="Your review here"></textarea>
+                </br>
+                <button type="submit" id="revbutton" name="revsubmit" placeholder="submit">Submit</button>
+            </div>
+        </form>
+        {% else %}
+        <h3>Thank you ! your review was submitted </h3>
+        {% endif %}
+    </div>
+    <div class="totreviews">
+        {% if trstatus == 1 %}
+        {% for review in trevs %}
+        {% if loop.index % 3 == 1 %}
+        <h3><i>User : </i>{{review}} </h3>
+        {% endif %}
+        {% if loop.index % 3 == 2 %}
+        <h4><i>Rating : </i>{{review}} out of 5 </h4>
+        {% endif %}
+        {% if loop.index % 3 == 0 %}
+        <h4><i>Review : </i>{{review}} </h4>
+        {% if loop.index != loop.length %}
+        <div id="partitioner"><p></p></div>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <h3>This book has not not received any rating or reviews, be the first one to rate it and write a review.</h3>
+        {% endif %}
+    </div>
+</body>
+    <div id="identity">Created and Crafted with love </br>By Abhishek Vyas</div>
+</html>
