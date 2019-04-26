@@ -8,4 +8,3 @@ SQLAlchemy
 requests
 
 flask
-csv
