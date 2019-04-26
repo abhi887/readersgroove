@@ -22,7 +22,7 @@ db=scoped_session(sessionmaker(bind=engine))
 engine2=create_engine(DATABASE_URL2)
 db2=scoped_session(sessionmaker(bind=engine2))
 
-app=Flask(__name__)
+app=Flask(__name__,template_folder='template')
 
 #configuring app
 app.config["SESSION_PERMENANT"]=False
@@ -35,7 +35,7 @@ global usrnm
 
 @app.route("/")
 def index():
-    return render_template("templates\\login.html")
+    return render_template("login.html")
 
 @app.route("/signup",methods=["GET","POST"])
 def signup():
