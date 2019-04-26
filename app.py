@@ -31,9 +31,6 @@ app.static_folder='static'
 Session(app)
 global usrnm
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
 
 @app.route("/")
 def index():
@@ -262,3 +259,7 @@ def book():
             return render_template("relogin.html", cerror=True)
     except sqlalchemy.exc.OperationalError :
         return render_template("relogin.html", cerror=True)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
