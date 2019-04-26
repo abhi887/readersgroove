@@ -35,7 +35,7 @@ global usrnm
 
 @app.route("/")
 def index():
-    return render_template("\\templates\\login.html")
+    return render_template("templates\\login.html")
 
 @app.route("/signup",methods=["GET","POST"])
 def signup():
