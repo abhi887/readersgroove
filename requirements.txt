@@ -7,7 +7,7 @@ psycopg2
 SQLAlchemy
 requests
 
-sqlalchemy.orm
+flask
 os
 sys
 csv
