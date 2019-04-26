@@ -4,7 +4,6 @@ import builtins
 import os
 
 from flask import Flask,render_template,request,g
-from jinja2 import FileSystemLoader, Environment
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session,sessionmaker,Session
 
@@ -32,20 +31,11 @@ app.static_folder='static'
 Session(app)
 global usrnm
 
-env = Environment(loader=FileSystemLoader(searchpath='/templates'))
-bookhtml = env.get_template('book.html')
-emptyresulthtml = env.get_template('emptyresult.html')
-loginhtml= env.get_template('login.html')
-reloginhtml = env.get_template('relogin.html')
-resignuphtml = env.get_template('resignup.html')
-resulthtml = env.get_template('result.html')
-signuphtml = env.get_template('signup.html')
-userlghtml = env.get_template('userlg.html')
 
 
 @app.route("/")
 def index():
-    return loginhtml
+    return render_template("login.html")
 
 @app.route("/signup",methods=["GET","POST"])
 def signup():
