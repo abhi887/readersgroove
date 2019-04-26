@@ -32,7 +32,7 @@ app.static_folder='static'
 Session(app)
 global usrnm
 
-env = Environment(loader=FileSystemLoader(searchpath='/templates/'))
+env = Environment(loader=FileSystemLoader(searchpath='/templates'))
 bookhtml = env.get_template('book.html')
 emptyresulthtml = env.get_template('emptyresult.html')
 loginhtml= env.get_template('login.html')
