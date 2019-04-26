@@ -22,7 +22,7 @@ db=scoped_session(sessionmaker(bind=engine))
 engine2=create_engine(DATABASE_URL2)
 db2=scoped_session(sessionmaker(bind=engine2))
 
-app=Flask(__name__,template_folder='template')
+app=Flask(__name__,template_folder='templates')
 
 #configuring app
 app.config["SESSION_PERMENANT"]=False
