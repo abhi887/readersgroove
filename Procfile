@@ -1,1 +1,1 @@
-web: python app/app.py runserver --host 0.0.0.0
+web: python app.py runserver --host 0.0.0.0
