@@ -36,14 +36,14 @@ global usrnm
 
 @app.route("/")
 def index():
-    return render_template("login.html")
+    return render_template("templates\\login.html")
 
 @app.route("/signup",methods=["GET","POST"])
 def signup():
     try:
-        return render_template("signup.html")
+        return render_template("templates\\signup.html")
     except sqlalchemy.exc.OperationalError:
-        return render_template("relogin.html", cerror=True)
+        return render_template("templates\\relogin.html", cerror=True)
         #return "Sorry but our site is currently not available. try again later."
 
 @app.route("/ssignup",methods=["PUT","POST"])
@@ -70,7 +70,7 @@ def ssignup():
         elif password=='':
             check2 = False
         if check2 == False:
-            return render_template("resignup.html",signuped="Please fill in all the fields")
+            return render_template("templates\\resignup.html",signuped="Please fill in all the fields")
         check = list(db.execute("select email from persona where email=:email", {"email": email}))
         if check[0][0]== None:
             nessenid = list(db.execute("select max(nessid) from nessen;"))
@@ -78,24 +78,24 @@ def ssignup():
             db.execute("insert into persona values(:fname,:lname,:email,:nessenid)",{"email":email,"fname":fname,"lname":lname,"nessenid":nessenid[0][0]})
             db.execute("insert into secper values(:nessenid,:email,:password)",{"nessenid":nessenid[0][0],"email":email,"password":password})
             db.commit()
-            return render_template("resignup.html",signuped="Congratulations ! you are now signed up on the Readers Groove.</br>Login using your credentials to countinue")
+            return render_template("templates\\resignup.html",signuped="Congratulations ! you are now signed up on the Readers Groove.</br>Login using your credentials to countinue")
             #return "Congratulations ! you are now signed up on the Readers Groove."
         else :
-            return render_template("resignup.html",wemail=email,signuped=None)
+            return render_template("templates\\resignup.html",wemail=email,signuped=None)
     except sqlalchemy.exc.OperationalError: # for connection error
-        return render_template("relogin.html", cerror=True)
+        return render_template("templates\\relogin.html", cerror=True)
         #return "Sorry but our site is currently not available. try again later."
 @app.route("/login")
 def login():
     try:
-        return render_template("login.html")
+        return render_template("templates\\login.html")
     except sqlalchemy.exc.OperationalError:
-        return render_template("relogin.html", cerror=True)
+        return render_template("templates\\relogin.html", cerror=True)
 
 @app.route("/slogin",methods=["POST","GET"])
 def slogin():
     if request.method=='GET':
-        return render_template("login.html")
+        return render_template("templates\\login.html")
     try:
         global usrnm,email
         email=request.form.get("username")
@@ -104,17 +104,17 @@ def slogin():
         lname=list(db.execute("select lname from persona where email=:email",{"email":email}))
         usrnm = (fname[0][0]+" "+lname[0][0])
         if request.form.get("password")==pschek[0][0]:
-            return render_template("userlg.html",fname=fname[0][0],usrnm=(f"{fname[0][0]} {lname[0][0]}"))
+            return render_template("templates\\userlg.html",fname=fname[0][0],usrnm=(f"{fname[0][0]} {lname[0][0]}"))
             #return "Congratulations ! you are now logged in."
         else:
-            return render_template("relogin.html")
+            return render_template("templates\\relogin.html")
     except sqlalchemy.exc.OperationalError:
-        return render_template("relogin.html",cerror=True)
+        return render_template("templates\\relogin.html",cerror=True)
 
 @app.route("/search",methods=["POST","GET"])
 def search():
     if request.method =='GET':
-        return render_template("login.html")
+        return render_template("templates\\login.html")
     try:
         try:
             # STARTING A SECOND DATABASE INSTANCE
@@ -123,7 +123,7 @@ def search():
             # SECOND DATABASE INSTANCE OVER
             search=request.form.get("search")
             if search=="":
-                return render_template("emptyresult.html",usrnm='')
+                return render_template("templates\\emptyresult.html",usrnm='')
             frtitle = list(db2.execute("select title,author,year,isbn from authtit,book where title ilike :search and authtit.authtit_id=book.authtit_id;",{"search":search+'%'}))
             results=(frtitle)
             if frtitle==[]:
@@ -146,19 +146,19 @@ def search():
                 #print(f"\n\nresutls are : {res1} \n\n")
                 #return "Your search is now complete check your flask console."
                 try:
-                    return render_template("result.html",results=res1,usrnm=usrnm,reslen=int(len(res1)/4),llen=int(len(res1)))
+                    return render_template("templates\\result.html",results=res1,usrnm=usrnm,reslen=int(len(res1)/4),llen=int(len(res1)))
                 except NameError:
-                        return render_template("result.html",results=res1,usrnm='',reslen=int(len(res1)/4),llen=int(len(res1)))
+                        return render_template("templates\\result.html",results=res1,usrnm='',reslen=int(len(res1)/4),llen=int(len(res1)))
             else:
                 # return "sorry there are no results for your search ! "
                 try:
-                    return render_template("result.html",results="No results found , sorry !",check="true",usrnm=usrnm,reslen=0)
+                    return render_template("templates\\result.html",results="No results found , sorry !",check="true",usrnm=usrnm,reslen=0)
                 except NameError:
-                    return render_template("result.html", results="No results found , sorry !",check="true",usrnm='',reslen=0)
+                    return render_template("templates\\result.html", results="No results found , sorry !",check="true",usrnm='',reslen=0)
         except TypeError:
-            return render_template("emptyresult.html",usrnm=usrnm)
+            return render_template("templates\\emptyresult.html",usrnm=usrnm)
     except sqlalchemy.exc.OperationalError:
-        return render_template("relogin.html", cerror=True)
+        return render_template("templates\\relogin.html", cerror=True)
         #return "Sorry but our site is currently not available. try again later."
 
 
@@ -252,15 +252,15 @@ def book():
                     binfo=[]
                     for attr in battributes:
                         binfo.append(data['books'][0][attr])
-                    return render_template("book.html",usrnm=usrnm,bname=bname,isbn=isbn,res=binfo,revi=revi,trevs=trevs,trstatus=trstatus)
+                    return render_template("templates\\book.html",usrnm=usrnm,bname=bname,isbn=isbn,res=binfo,revi=revi,trevs=trevs,trstatus=trstatus)
                 except IndexError:
-                    return render_template("relogin.html",cerror=True)
+                    return render_template("templates\\relogin.html",cerror=True)
             except NameError:
-                return render_template("book.html",usrnm='',bname=bname,isbn=isbn,res=binfo,revi=revi,trevs=trevs,trstatus=trstatus)
+                return render_template("templates\\book.html",usrnm='',bname=bname,isbn=isbn,res=binfo,revi=revi,trevs=trevs,trstatus=trstatus)
         except builtins.UnboundLocalError:
-            return render_template("relogin.html", cerror=True)
+            return render_template("templates\\relogin.html", cerror=True)
     except sqlalchemy.exc.OperationalError :
-        return render_template("relogin.html", cerror=True)
+        return render_template("templates\\relogin.html", cerror=True)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
