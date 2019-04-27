@@ -38,14 +38,14 @@ global usrnm
 
 @app.route("/")
 def index():
-    return render_template("templates\\login.html")
+    return render_template("templates/login.html")
 
 @app.route("/signup",methods=["GET","POST"])
 def signup():
     try:
-        return render_template("templates\\signup.html")
+        return render_template("templates/signup.html")
     except sqlalchemy.exc.OperationalError:
-        return render_template("templates\\relogin.html", cerror=True)
+        return render_template("templates/relogin.html", cerror=True)
         #return "Sorry but our site is currently not available. try again later."
 
 @app.route("/ssignup",methods=["PUT","POST"])
