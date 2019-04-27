@@ -3,6 +3,7 @@ import requests
 import builtins
 import os
 
+from django.shortcuts import render
 from flask import Flask,render_template,request
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session,sessionmaker,Session
@@ -38,7 +39,7 @@ global usrnm
 
 @app.route("/")
 def index():
-    return render_template("templates/login.html")
+    return render(index,"login.html")
 
 @app.route("/signup",methods=["GET","POST"])
 def signup():
