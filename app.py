@@ -7,6 +7,8 @@ from flask import Flask,render_template,request
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session,sessionmaker,Session
 
+print(os.path.dirname(os.path.realpath(__file__)))
+
 #check enviornment variable as DATABASE_URL
 #if not os.getenv("DATABASE_URL"):
  #   raise RuntimeError("DATABASE_URL is not set.")
