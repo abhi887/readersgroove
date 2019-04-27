@@ -2,6 +2,7 @@ import sqlalchemy
 import requests
 import builtins
 import os
+import django
 
 from django.shortcuts import render
 from flask import Flask,render_template,request
