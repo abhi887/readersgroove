@@ -40,7 +40,7 @@ global usrnm
 
 @app.route("/")
 def index():
-    return render(index,"login.html")
+    return render_template("login.html")
 
 @app.route("/signup",methods=["GET","POST"])
 def signup():
